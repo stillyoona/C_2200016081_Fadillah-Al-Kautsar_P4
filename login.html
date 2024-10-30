@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Mencegah form submit secara default
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Contoh validasi login sederhana
+            if (username !== 'testuser' || password !== 'password123') {
+                document.getElementById('errorMessage').innerText = 'Username atau password salah';
+                document.getElementById('errorMessage').style.display = 'block';
+            } else {
+                // Jika login berhasil, bisa diarahkan ke halaman lain atau lakukan aksi lain
+                alert('Login berhasil!');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginForm').addEventListener('submit', validateLogin);
+        });
+    </script>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+        <button type="submit" id="loginButton">Login</button>
+    </form>
+    
+    <!-- Elemen untuk pesan error -->
+    <div id="errorMessage" style="display:none; color: red; margin-top: 10px;"></div>
+</body>
+</html>
